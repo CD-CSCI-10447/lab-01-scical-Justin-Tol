@@ -41,6 +41,7 @@ public class Problem {
                 if (easy[i+1] == 'x'){
                     return true;
                 }
+             return false;
             }
         }
         return false;
