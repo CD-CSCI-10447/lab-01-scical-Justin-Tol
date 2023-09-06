@@ -16,7 +16,11 @@ public class Problem {
 
     public static String stringCopies(String word, int n) {
 
-        return null;
+        String newWord = "";
+        for (int i = 0; i < n; i++){
+            newWord += word;
+        }
+        return newWord;
     }
 
 
@@ -31,8 +35,16 @@ public class Problem {
      */
 
     public static Boolean followedX(String str) {
-
-        return null;
+        char[] easy = str.toCharArray();
+        for (int i = 0; i < str.length()-1; i++){
+            if (easy[i] == 'x'){
+                if (easy[i+1] == 'x'){
+                    return true;
+                }
+             return false;
+            }
+        }
+        return false;
     }
 
 
@@ -49,8 +61,18 @@ public class Problem {
      */
 
     public static Integer subTwo(String str) {
-
-        return null;
+        int counter = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (i <= str.length() - 3) {
+                if (str.charAt(i) == 'x') {
+                    if (str.charAt(i + 1) == 'x') {
+                        //i++;
+                        counter++;
+                    }
+                }
+            }
+        }
+        return counter;
     }
 
 
@@ -69,8 +91,18 @@ public class Problem {
      */
 
     public static Boolean basicNumbers123(int[] nums) {
-
-        return null;
+        for (int i = 0; i < nums.length; i++){
+            if (i >= nums.length - 1){
+                return false;
+            } else if (nums[i] == 1 ) {//&& nums[i] != nums[nums.length-1]){
+                if (nums[i+1] == 2){
+                    if (nums[i+2] == 3){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 
@@ -89,8 +121,28 @@ public class Problem {
      */
 
     public static String scrambleOfLetters(String scramble) {
+        char[] breezey = scramble.toCharArray();
+        String beautiful = "";
+        for (int i = 0; i < breezey.length; i++){
+            if (i == 0 || i == 1 || i == 4 || i == 5 || i == 8 || i == 9){
+                beautiful += breezey[i];
+            }
+            /*
+            switch (i){
+                case 0:
+                    beautiful += breezey[i];
+                    break;
+                case 1:
+                    beautiful += breezey[i];
+                    break;
+                case 4:
+                    beautiful += breezey[i];
+                    break;
+            }
 
-        return null;
+             */
+        }
+        return beautiful;
     }
 
 
@@ -107,8 +159,17 @@ public class Problem {
      */
 
     public static Boolean dontAcceptTriples(int[] score) {
-
-        return null;
+        for (int i = 0; i < score.length; i++) {
+            int e = i + 1;
+            if (e != score.length) {
+                if (score[i] == score[e]){ //&& e != score.length - 1 && i != score.length - 1) {
+                    if (score[i + 1] == score[e + 1]) {
+                       return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     /* Problem 07
@@ -121,8 +182,16 @@ public class Problem {
     frontCopies("Abc", 3) --> "AbcAbcAbc"
      */
     public static String frontCopies(String str, int x) {
-
-        return null;
+        char[] cover = str.toCharArray();
+        String wordMultiplyer = "";
+        String newWord = "";
+        wordMultiplyer += cover[0];
+        wordMultiplyer += cover[1];
+        wordMultiplyer += cover[2];
+        for (int i = 0; i < x; i++){
+            newWord += wordMultiplyer;
+        }
+        return newWord;
     }
 
 
@@ -137,8 +206,20 @@ public class Problem {
      */
 
     public static String everyOtherBit(String word) {
-
-        return null;
+        String newWord = "";
+        boolean switcher = true;
+        for (int i = 0; i < word.length(); i++){
+            if (switcher) {
+                if (word.charAt(i) == 'l' && word.charAt(i+1) == 'l'){
+                    newWord += word.charAt(i);
+                }
+                newWord += word.charAt(i);
+                switcher = false;
+            } else {
+                switcher = true;
+            }
+        }
+        return newWord;
     }
 
 
@@ -153,8 +234,13 @@ public class Problem {
      */
 
     public static Integer favoriteNine(int[] nums) {
-
-        return null;
+        int favNumber = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] == 9) {
+                favNumber++;
+            }
+        }
+        return favNumber;
     }
 
 
@@ -170,8 +256,17 @@ public class Problem {
      */
 
     public static Integer amIAMatch(String x, String z) {
-
-        return null;
+        char[] sleepy = x.toCharArray();
+        char[] snore = z.toCharArray();
+        int myBed = 0;
+        for (int i = 0; i < snore.length; i++) {
+            if (sleepy[i] == snore[i] && i != sleepy.length-1 && i != snore.length-1) {
+                if (sleepy[i + 1] == snore[i + 1]) {
+                    myBed++;
+                }
+            }
+        }
+        return myBed;
     }
 
 
@@ -187,8 +282,19 @@ public class Problem {
      */
 
     public static String unluckyYak(String phrase) {
+        /*
+        for (int i = 0; i < phrase.length(); i++){
+            if (phrase.charAt(i) == 'y'){
+                if (phrase.charAt(i) == 'a'){
+                    if (phrase.charAt(i) == 'k'){
+                        phrase.replace()
+                    }
+                }
+            }
+        }
 
-        return null;
+         */
+        return phrase.replaceFirst("yak","");
     }
 
 
@@ -206,7 +312,15 @@ public class Problem {
      */
 
     public static Boolean pattern271(int[] nums) {
-
-        return null;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] == 2) {
+                if (nums[i + 1] == 7) {
+                    if (nums[i + 2] == 1) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
